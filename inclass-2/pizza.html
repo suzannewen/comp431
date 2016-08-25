@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head> 
+<meta charset=“utf-8”>
+<meta name=“author” content=“Suzanne Wen">
+
+<h1>Pizza Order Form</h1>
+</head>
+
+<body>
+<form id="Pizza Form" method="" action="#">
+<p>Name: <input type="text" name="name" required='' pattern='[A-Z][a-zA-Z]*\s[A-Z][a-zA-Z]*'> <i>(First Last)</i></p>
+<p>Delivery Address: <input type="text" name="address" required=''> <i>(#### Street Name)</i></p>
+<p>Phone Number: <input type="tel" name="phone" required='' pattern='^[1-9]\d{2}-\d{3}-\d{4}'> <i>(###-###-####)</i></p>
+<u>Pizza size</u> <i>(select one)</i><br>
+  <input type="radio" name="pizza type" value="large">Large
+  <input type="radio" name="pizza type" value="medium"> Medium
+  <input type="radio" name="pizza type" value="small"> Small <br><br>
+<u>Pizza toppings</u> <i>(select all desired)</i><br>
+  <input type="checkbox" name="topping type" value="sausage">Sausage
+  <input type="checkbox" name="topping type" value="pepperoni">Pepperoni
+  <input type="checkbox" name="topping type" value="mushroom">Mushroom
+  <input type="checkbox" name="topping type" value="olives">Olives <br><br>
+
+<input type="submit" value="Place Order">
+<input type="reset" value="Clear">
+
+</form>
+</body>
+
+</html>

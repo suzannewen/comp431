@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head> 
+<meta charset=“utf-8”>
+<meta name=“author” content=“Suzanne Wen">
+
+<script>
+var url = window.location.href; 
+console.log(url);
+
+var paramArray = [];
+var valueArray = [];
+
+function getParams (url) {
+  url = url.substr(url.search("html")+5);
+  var kvp = url.split("&");
+  for (i = 0; i < kvp.length; i++) {
+    var paramValue = kvp[i].split("=");
+    paramArray.push(paramValue[0]);
+    valueArray.push(paramValue[1]);
+  }
+}
+getParams(url);
+
+function paramsTable (paramArray, valueArray) {
+  var body = document.body;
+  var table = document.createElement('table');
+
+  for (i = 0; i < paramArray.length; i++) {
+    var row = table.insertRow();
+    for (i = 0; i < 2; i++) {
+      var column = row.insertCell();
+      if (i == 0) {
+        column.appendChild(document.createTextNode(paramArray[i]));
+      }
+      else {
+        column.appendChild(document.createTextNode(valueArray[i]));
+      }
+    }
+  }
+}
+paramsTable(paramArray, valueArray);
+
+</script>
+</head>
+
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Parameter</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td id=""></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+    <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+    <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+    <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+    <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

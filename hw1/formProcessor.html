@@ -8,10 +8,10 @@
 <script>
 var url = window.location.href; 
 console.log(url);
-
 var paramArray = [];
 var valueArray = [];
-
+ 
+ //parse url string to get params and values
 function getParams (url) {
   url = url.substr(url.search("html")+5);
   var kvp = url.split("&");
@@ -20,68 +20,44 @@ function getParams (url) {
     paramArray.push(paramValue[0]);
     valueArray.push(paramValue[1]);
   }
+
+  //replace milliseconds with human readable date
+  var timeIndex = paramArray.indexOf("time");
+  var date = new Date(parseInt(valueArray[timeIndex])); //get ms, convert to String and create new Date object
+  valueArray[timeIndex] = date; //replace ms with readable date
 }
 getParams(url);
 
-function paramsTable (paramArray, valueArray) {
-  var body = document.body;
+function paramsTable () {
   var table = document.createElement('table');
-
+  //double for loop for rows and cells within that row (columns)
   for (i = 0; i < paramArray.length; i++) {
     var row = table.insertRow();
-    for (i = 0; i < 2; i++) {
+    for (j = 0; j < 2; j++) {
       var column = row.insertCell();
-      if (i == 0) {
+      //insert param or value depending on which column
+      if (i > 0 && j == 0) {
         column.appendChild(document.createTextNode(paramArray[i]));
       }
-      else {
+      else if (i > 0 && j == 1) {
         column.appendChild(document.createTextNode(valueArray[i]));
+      }
+      else {
+        if (j == 0) { //if first row
+          column.appendChild(document.createTextNode("Parameter"));
+        }
+        else {
+          column.appendChild(document.createTextNode("Value"));
+        }
       }
     }
   }
+  document.body.appendChild(table);
 }
-paramsTable(paramArray, valueArray);
-
 </script>
 </head>
 
-<body>
-
-<table style="width:100%">
-  <tr>
-    <th>Parameter</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td id=""></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-    <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-    <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-    <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-    <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-</table>
-
+<body onload="paramsTable();">
 </body>
 
 </html>

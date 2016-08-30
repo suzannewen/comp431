@@ -4,23 +4,22 @@
 <head> 
 <meta charset=“utf-8”>
 <meta name=“author” content=“Suzanne Wen">
+<link rel="stylesheet" href="style.css">
 
 <script>
 var url = window.location.href; 
-console.log(url);
 var paramArray = [];
 var valueArray = [];
  
  //parse url string to get params and values
 function getParams (url) {
   url = url.substr(url.search("html")+5);
-  var kvp = url.split("&");
-  for (i = 0; i < kvp.length; i++) {
+  var kvp = url.split("&"); //splits url into kvp's
+  for (i = 0; i < kvp.length; i++) { //iterate through each kvp and split into two strings, the param and value
     var paramValue = kvp[i].split("=");
     paramArray.push(paramValue[0]);
     valueArray.push(paramValue[1]);
   }
-
   //replace milliseconds with human readable date
   var timeIndex = paramArray.indexOf("time");
   var date = new Date(parseInt(valueArray[timeIndex])); //get ms, convert to String and create new Date object
@@ -30,25 +29,30 @@ getParams(url);
 
 function paramsTable () {
   var table = document.createElement('table');
+
+  //insert row, column for table titles
+  var row = table.insertRow();
+  for (j = 0; j < 2; j++) {
+    var column = row.insertCell();
+    if (j == 0) {
+      column.appendChild(document.createTextNode("Parameter"));
+    }
+    else {
+      column.appendChild(document.createTextNode("Value"));
+    }
+  }
+
   //double for loop for rows and cells within that row (columns)
   for (i = 0; i < paramArray.length; i++) {
     var row = table.insertRow();
     for (j = 0; j < 2; j++) {
       var column = row.insertCell();
       //insert param or value depending on which column
-      if (i > 0 && j == 0) {
+      if (j == 0) {
         column.appendChild(document.createTextNode(paramArray[i]));
       }
-      else if (i > 0 && j == 1) {
-        column.appendChild(document.createTextNode(valueArray[i]));
-      }
       else {
-        if (j == 0) { //if first row
-          column.appendChild(document.createTextNode("Parameter"));
-        }
-        else {
-          column.appendChild(document.createTextNode("Value"));
-        }
+        column.appendChild(document.createTextNode(valueArray[i]));
       }
     }
   }

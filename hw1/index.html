@@ -4,13 +4,15 @@
 <head> 
 <meta charset=“utf-8”>
 <meta name=“author” content=“Suzanne Wen">
+<link rel="stylesheet" href="style.css">
 
 <script>
 
 var today = new Date();
 
 function validateDOB () {
-  var birthDate = document.getElementById("birth").value;
+  console.log("dob");
+  var birthDate = document.getElementById("birthdate").value;
   var birthYear = birthDate.substr(0,4);
   var birthMonth = birthDate.substr(5,2); 
   var birthDay = birthDate.substr(8,2);
@@ -29,6 +31,7 @@ function validateDOB () {
 }
 
 function pwMatch () {
+  console.log("pw")
   var pw = document.getElementById("password").value;
   var match = document.getElementById("confirmation").value;        
 
@@ -50,22 +53,22 @@ function setTime() {
 </head>
 
 <body onload="setTime();">
-
-<form action="formProcessor.html" method="get" > <!-- GET request -->
-<!--   <p>Account Name: <input type="text" name="account" required='' pattern='^[A-Za-z][A-Za-z0-9]*$'> <i>(only letters or numbers, cannot start with number)</i></p>
+<div id="form">
+<form action="formProcessor.html" method="get"> <!-- GET request -->
+  <p>Account Name: <input type="text" name="account" required='' pattern='^[A-Za-z][A-Za-z0-9]*$'> <i>(only letters or numbers, cannot start with number)</i></p>
   <p>Display Name: <input type="text" name="display"> <i>(optional)</i></p>
   <p>Email Address: <input type="email" name="email" required='' pattern='[0-9a-zA-Z\-]{1,63}[\.][a-zA-Z\-]{2,24}[\@][0-9a-zA-Z\-]{1,63}[\.][a-zA-Z\-]{2,24}'> <i></i></p>
-  <p>Phone Number: <input type="tel" name="phone" required='' pattern='^[1-9]\d{2}-\d{3}-\d{4}'> <i>(###-###-####)</i></p> -->
-  <p>Date of Birth: <input type="date" name="birth" required=''> <i>(must be at least 18 years of age)</i></p>
+  <p>Phone Number: <input type="tel" name="phone" required='' pattern='^[1-9]\d{2}-\d{3}-\d{4}'> <i>(###-###-####)</i></p>
+  <p>Date of Birth: <input type="date" id="birthdate" name="birth" required=''> <i>(must be at least 18 years of age)</i></p>
   <p>Zipcode: <input type="tel" name="zipcode" required='' pattern='[0-9]{5}'> <i>(#####)</i></p>
-  <p>Password: <input type="password" name="password" required='' pattern='.{6,}' maxlength="12"> <i>Min of 6 characters, Max of 12 characters</i></p>
-  <p>Password Confirmation: <input type="tel" name="confirmation" required='' onChange="return pwMatch();"> <i>(must match above password)</i></p>
+  <p>Password: <input type="password" id="password" name="password" required='' pattern='.{6,}' maxlength="12"> <i>Min of 6 characters, Max of 12 characters</i></p>
+  <p>Password Confirmation: <input type="password" id="confirmation" name="confirmation" required='' onChange="return pwMatch();"> <i>(must match above password)</i></p>
   <input type="hidden" id="timestamp" name="time">
 
   <input type="submit" value="Submit" onClick="return validateDOB();">
   <input type="reset" value="Clear">
 </form>
-
+</div>
 </body>
 
 

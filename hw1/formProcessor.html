@@ -18,7 +18,7 @@ function getParams (url) {
   for (i = 0; i < kvp.length; i++) { //iterate through each kvp and split into two strings, the param and value
     var paramValue = kvp[i].split("=");
     paramArray.push(paramValue[0]);
-    valueArray.push(paramValue[1]);
+    valueArray.push(decodeURIComponent(paramValue[1])); //decode URI (@)
   }
   //replace milliseconds with human readable date
   var timeIndex = paramArray.indexOf("time");
@@ -28,9 +28,8 @@ function getParams (url) {
 getParams(url);
 
 function paramsTable () {
-  var table = document.createElement('table');
-
-  //insert row, column for table titles
+  var table = document.createElement("table");
+  //insert first row, column for table titles
   var row = table.insertRow();
   for (j = 0; j < 2; j++) {
     var column = row.insertCell();

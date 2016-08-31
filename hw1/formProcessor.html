@@ -34,7 +34,7 @@ function paramsTable () {
   var row = table.insertRow();
   for (j = 0; j < 2; j++) {
     var column = row.insertCell();
-    if (j == 0) {
+    if (j === 0) {
       column.appendChild(document.createTextNode("Parameter"));
     }
     else {
@@ -48,7 +48,7 @@ function paramsTable () {
     for (j = 0; j < 2; j++) {
       var column = row.insertCell();
       //insert param or value depending on which column
-      if (j == 0) {
+      if (j === 0) {
         column.appendChild(document.createTextNode(paramArray[i]));
       }
       else {

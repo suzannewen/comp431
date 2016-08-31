@@ -55,10 +55,10 @@ function setTime() {
 <body onload="setTime();">
 <div id="form">
 <form action="formProcessor.html" method="get"> <!-- GET request -->
-  <p>Account Name: <input type="text" name="account" required='' pattern='^[A-Za-z][A-Za-z0-9]*$'> <i>(only letters or numbers, cannot start with number)</i></p>
+  <p>Account Name: <input type="text" name="account" required='' pattern='^[A-Za-z][A-Za-z0-9]*'> <i>(only letters or numbers, cannot start with number)</i></p>
   <p>Display Name: <input type="text" name="display"> <i>(optional)</i></p>
-  <p>Email Address: <input type="email" name="email" required='' pattern='[0-9a-zA-Z\-]{1,63}[\.][a-zA-Z\-]{2,24}[\@][0-9a-zA-Z\-]{1,63}[\.][a-zA-Z\-]{2,24}'> <i></i></p>
-  <p>Phone Number: <input type="tel" name="phone" required='' pattern='^[1-9]\d{2}-\d{3}-\d{4}'> <i>(###-###-####)</i></p>
+  <p>Email Address: <input type="email" name="email" required='' pattern='[0-9a-zA-Z\-]{1,}.?[0-9a-zA-Z\-]*@[0-9a-zA-Z\-]{1,}.[a-zA-Z\-]{1,}'> <i>(must be valid email)</i></p>
+  <p>Phone Number: <input type="tel" name="phone" required='' pattern='^\d{3}-\d{3}-\d{4}'> <i>(###-###-####)</i></p>
   <p>Date of Birth: <input type="date" id="birthdate" name="birth" required=''> <i>(must be at least 18 years of age)</i></p>
   <p>Zipcode: <input type="tel" name="zipcode" required='' pattern='[0-9]{5}'> <i>(#####)</i></p>
   <p>Password: <input type="password" id="password" name="password" required='' pattern='.{6,}' maxlength="12"> <i>Min of 6 characters, Max of 12 characters</i></p>

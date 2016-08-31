@@ -39,7 +39,13 @@ window.onload = timer;
 function timer () {
   var time = 15;
   console.log("timer");
-  setInterval(function() {document.getElementById("indicator").innerHTML = "Countdown timer: "+time; time--; }, 1000);
+  setInterval(function() {
+    document.getElementById("indicator").innerHTML = "Countdown timer: "+time; 
+    time--; 
+    if (time === -1) {
+      window.location = "http://www.clear.rice.edu/comp431/sample/hello.html";
+    }
+  }, 1000);
 }
 </script>
 

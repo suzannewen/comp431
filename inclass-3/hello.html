@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head> 
+<meta charset=“utf-8”>
+<meta name=“author” content=“Suzanne Wen">
+
+<h1> Suzanne Wen </h1> 
+<img src="itsme.jpg" alt="It's Me, Suzanne Wen!">
+</head>
+
+<body>
+<br><span id="indicator" style="border: 2px solid black"></span>
+<pre>
+Now this is a story all about how
+My life got flipped-turned upside down
+And I'd like to take a minute
+Just sit right there
+I'll tell you how I became the prince of a town called Bel-Air 
+</pre>
+
+<p><a href="https://www.facebook.com/suzanne.wen">Find me on Facebook!</a></p>
+<p><a href="https://www.youtube.com/watch?v=PT2_F-1esPk">My jam at the moment</a></p>
+
+<p>Leave a comment for me below!</p>
+<textarea rows="4" cols="50" name="comment" form="usrform" id="textarea">Enter text here...</textarea>
+<p> <input type="submit"> <button type="button" onclick="clearText()">Clear</button></p>
+</body>
+
+<script>
+function clearText() {
+  document.getElementById("textarea").value = "";
+}
+
+// setTimeout(function() { alert("The page will redirect when the counter reaches zero!"); }, 5000);
+
+window.onload = timer;
+
+function timer () {
+  var time = 15;
+  console.log("timer");
+  setInterval(function() {document.getElementById("indicator").innerHTML = "Countdown timer: "+time; time--; }, 1000);
+}
+</script>
+
+</html>

@@ -11,6 +11,7 @@
 
 <body>
 <br><span id="indicator" style="border: 2px solid black"></span>
+<br><button onclick="clearInterval(timer)">Stop time</button>
 <pre>
 Now this is a story all about how
 My life got flipped-turned upside down
@@ -34,19 +35,13 @@ function clearText() {
 
 setTimeout(function() { alert("The page will redirect when the counter reaches zero!"); }, 5000);
 
-window.onload = timer;
-
-function timer () {
-  var time = 15;
-  console.log("timer");
-  setInterval(function() {
+var time = 15;
+var timer = setInterval(function() {
     document.getElementById("indicator").innerHTML = "Countdown timer: "+time; 
     time--; 
     if (time === -1) {
-      window.location = "http://www.clear.rice.edu/comp431/sample/hello.html";
-    }
+      window.location = "http://www.clear.rice.edu/comp431/sample/hello.html";}
   }, 1000);
-}
 </script>
 
 </html>

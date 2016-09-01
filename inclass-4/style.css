@@ -1,1 +1,32 @@
-cssssss
+#loginBox {
+  background: gray;
+  padding: 10px;
+}
+
+#comment {
+  background: blue;
+  color: white;
+  padding: 20px;
+  margin: 30px;
+}
+
+#title {
+  color: yellow;
+}
+
+#shareButton {
+  background: white;
+  padding: 5px;
+  margin: 10px;
+}
+
+#shareText {
+  background-color: yellow;
+  border: 5px double black;
+}
+
+#postButton {
+  background-color: green;
+  border: none;
+  padding: 10px;
+}

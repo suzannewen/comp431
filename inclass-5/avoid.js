@@ -20,5 +20,17 @@ function congrats () {
   var buttonDiv = document.getElementById("clickme");
 
   hiddenDiv.style.display = "block";
-  buttonDiv.innerHTML = "Play Again";
+  buttonDiv.innerHTML = "<br> Play Again";
+  buttonDiv.removeEventListener("mousemove", moveDiv);
+  buttonDiv.addEventListener("click", restart);
+}
+
+function restart () {
+  var hiddenDiv = document.getElementById("hidden");
+  var buttonDiv = document.getElementById("clickme");
+
+  hiddenDiv.style.display = "none";
+  buttonDiv.innerHTML = "<br> Click Me!";
+
+  buttonDiv.addEventListener("mousemove", moveDiv);
 }

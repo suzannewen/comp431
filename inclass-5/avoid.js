@@ -32,5 +32,7 @@ function restart () {
   hiddenDiv.style.display = "none";
   buttonDiv.innerHTML = "<br> Click Me!";
 
+  buttonDiv.removeEventListener("mousemove", moveDiv);
   buttonDiv.addEventListener("mousemove", moveDiv);
+  buttonDiv.addEventListener("click", congrats); 
 }

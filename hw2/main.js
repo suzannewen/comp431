@@ -10,7 +10,7 @@ var img7 = "http://66.media.tumblr.com/tumblr_m9cp2zH3Pi1rsphzto1_1280.jpg";
 var img8 = "http://flirtyfleurs.com/wp-content/uploads/2013/10/Picture-1.png";
 var img9 = "http://instagram.com/p/ZncvJYS0Xa/";
 
-var cardArray = [1, 2, 3, 4, 5];
+var cardArray = [1, 2];
 var imageArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 var intervalArray = [];
 var counterArray = [];
@@ -19,9 +19,6 @@ window.onload = function () {
   cardArray.forEach(setImages);
   cardArray.forEach(getInterval);
   cardArray.forEach(startInterval);
-
-  console.log(counterArray[0]);
-  clearInterval(counterArray[0]);
 }
 
 // gives each card a starting background image
@@ -47,9 +44,36 @@ function startInterval (element, index, array) {
 
   counterArray[index] = setInterval(function () {
     var imgInt = Math.round(Math.random() * 5);
-
     document.getElementById(idName).style.backgroundImage = "url('" + imageArray[imgInt] + "')";
+    console.log(idName);
   }, interval);
 }
+
+function startStop (buttonNum) { // buttonNum is element #, timerNum is index
+  var timerNum = buttonNum - 1;
+  var buttonName = "button" + buttonNum;
+  var button = document.getElementById(buttonName);
+
+  if (button.value === "stop") {
+    clearInterval(counterArray[timerNum]);
+    button.value = "start";
+  }
+  else {
+    var randomInt = Math.round(Math.random() * 5);
+    if (randomInt === 0) {
+      randomInt = 1;
+    }
+    var interval = randomInt * 1000;
+    var idName = "picture" + buttonNum;
+
+    counterArray[timerNum] = setInterval(function () {
+      var imgInt = Math.round(Math.random() * 5);
+      document.getElementById(idName).style.backgroundImage = "url('" + imageArray[imgInt] + "')";
+      console.log(idName);
+    }, interval);
+    button.value = "stop";
+  }
+}
+
 
 

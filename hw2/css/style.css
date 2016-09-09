@@ -11,6 +11,8 @@
 .linkButton {
   font-style: italic;
   font-family: sans-serif;
+  float: right;
+  margin-right: 50px;
 }
 
 input[type = button] {
@@ -40,4 +42,10 @@ input[type = button] {
 
 p {
   display: inline;
+}
+
+.textBox {
+  background-color: #ACD1E9;
+  padding: 30px;
+  font-size: 13px;
 }

@@ -10,16 +10,16 @@
 
 <body>
 <div class="linkButton">
-  <a href="main.html">Return to main page</a>
+  <a href="main.html">« Return to main page</a>
 </div>
 
 <div class="profileInfo">
-  <div class="infoInput">Display name: <input type="text" id="displayInput"> <p id="display">Suzanne Wen</p></div>
-  <div class="infoInput">Email address: <input type="email" id="emailInput"> <p id="email">yw25@rice.edu</p></div>
-  <div class="infoInput"> Phone number: <input type="tel" id="phoneInput"> <p id="phone">254-592-5421</p></div>
-  <div class="infoInput"> Zipcode: <input type="tel" id="zipcodeInput"> <p id="zipcode">77005</p></div>
-  <div class="infoInput"> Password: <input type="password" id="pwInput"> <p id="pw">mypassword</p></div>
-  <div class="infoInput"> Password confirmation: <input type="password" id="pwConfirmInput" onChange="return pwMatch();"> <p id="pwConfirm">mypassword</p></div>
+  <div class="infoInput">Display name: <input type="text" id="displayInput" placeholder="At least 5 characters."> <p id="display">Suzanne Wen</p></div>
+  <div class="infoInput">Email address: <input type="email" id="emailInput" placeholder="Must be a valid email."> <p id="email">yw25@rice.edu</p></div>
+  <div class="infoInput"> Phone number: <input type="tel" id="phoneInput" placeholder="###-###-####"> <p id="phone">254-592-5421</p></div>
+  <div class="infoInput"> Zipcode: <input type="tel" id="zipcodeInput" placeholder="5-digit number."> <p id="zipcode">77005</p></div>
+  <div class="infoInput"> Password: <input type="password" id="pwInput" placeholder="Between 6 and 13 characters long."> <p id="pw">mypassword</p></div>
+  <div class="infoInput"> Password confirmation: <input type="password" id="pwConfirmInput" onChange="return pwMatch();" placeholder="Must match above."> <p id="pwConfirm">mypassword</p></div>
   <input type="button" value="Update" onclick="submit()">
 </div>
 

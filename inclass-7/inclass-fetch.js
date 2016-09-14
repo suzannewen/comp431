@@ -58,18 +58,11 @@
     }
 
     function getLargest(url) {
-        var wordMap;
-
+        var idMap;
         return fetch(url)
-            .then ( wordMap = countWordsSafe(url) )
-            .then ( mostWords(wordMap) )
-    }
-
-    function mostWords(wordMap) {
-        console.log(wordMap)
-        wordMap.forEach(function(count) {
-            console.log(count)
-        })
+            .then( r => r.json() )
+            .then( r => idMap = getMap(r.articles))
+            .then( console.log(idMap) )
     }
 
     exports.inclass = {

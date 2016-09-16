@@ -1,4 +1,4 @@
-import particle from './particle' // import from js file
+import particle from './particle'
 import { update } from './particle'
 
 window.onload = () => {

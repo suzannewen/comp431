@@ -11,9 +11,11 @@ const particle = (
     return {acceleration, velocity, position, mass}
 }
 
+
 const update = ({acceleration, velocity, position, mass}, delta, canvas) => {
-    position[0] += velocity[0]*delta + 0.5*acceleration[0]^2;
-    position[1] += velocity[1]*delta + 0.5*acceleration[1]^2;
+    position[0] += velocity[0]*delta + 0.5*acceleration[0]*delta*delta;
+    position[1] += velocity[1]*delta + 0.5*acceleration[1]*delta*delta;
+
     if (position[0] > 800) {
       position[0] = 0;
     }
@@ -21,18 +23,11 @@ const update = ({acceleration, velocity, position, mass}, delta, canvas) => {
       position[1] = 0;
     }
 
-    // position.forEach( function (element, index, array) {
-    //   element += velocity[index]*delta + 0.5*acceleration[index]*delta^2;
-    //     if (element > 800) {
-    //       element = 0;
-    //     }
-    // }
-    
     velocity[0] += acceleration[0]*delta;
     velocity[1] += acceleration[1]*delta;
-    return { mass, acceleration, velocity, position } // new object
+    return { mass, acceleration, velocity, position }
 }
 
-export default particle // exporting particle module
+export default particle
 
-export { update } // exporting object
+export { update }

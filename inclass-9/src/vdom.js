@@ -14,10 +14,7 @@ function h(tag, props, ...children) {
 }
 
 function createElement(node) {
-	console.log('Create element called for', node)
-
             var element;
-
             if (node.children != null) {
                 element = document.createElement(node.tag);
                 for (var index in node.children) {
@@ -30,13 +27,17 @@ function createElement(node) {
                 element = document.createTextNode(node);
             }
 
-            if (node.props != null && node.props.onClick != null) {
-                element.addEventListener("click",node.props.onClick);
+            if (node.props != null) {
+                if (node.props.onClick != null) {
+                    element.addEventListener("click",node.props.onClick);
+                }
+                if (node.props.className != null) {
+                    element.className += node.props.className;
+                }
+                if (node.props.id != null) {
+                    element.id += node.props.id;
+                }
             }
-
-	// create the element and return it to the caller
-	// the node might have event listeners that need to be registered
-	// the node might have children that need to be created as well
 	return element;
 }
 

@@ -1,10 +1,12 @@
 body {
   background-color: #e6e6e6;}
 
+/*styles the top nav bar*/
 .header {
   text-align: left;
   background: #008080;
   background-size: cover;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 /*  overflow: visible;*/
   padding-top: 1rem;
@@ -38,18 +40,6 @@ body {
         background: rgba(250, 250, 250, 0.15);
         transition: all 0.35s ease-in-out; }
 
-.fi-magnifying-glass:before {
-content: "\f16c";
-position: absolute;
-margin-left: 7px;
-margin-top: 2 px;
-font-size: 30px;
-line-height: 50px;
-color: #cccccc;
-z-index: 2;
-display: inline-block;
-}
-
 input[type="text"].search {
   width: 150px;
   padding-left: 35px;
@@ -60,17 +50,67 @@ input[type="text"].search:focus {
   transition: ease-in-out,width .35s ease-in-out;
 }
 
+/*general input field styling*/
 input[type = button] {
     background-color: transparent;
     color: gray;
     font-size: 12px;
-    border: 0px;}
+    border: 0px;
+    text-transform: uppercase}
+    input[type = button]:hover {
+      text-decoration: underline;}
+    input[type = submit] {
+    background-color: transparent;
+    color: gray;
+    font-size: 15px;
+    border: 0px;
+    text-transform: uppercase;
+    text-align: right;}
+    input[type = submit]:hover {
+      text-decoration: underline;}
+    input[type = reset] {
+    background-color: transparent;
+    color: gray;
+    font-size: 15px;
+    border: 0px;
+    text-transform: uppercase}
+    input[type = reset]:hover {
+      text-decoration: underline;}
+    #login input[type = button] {
+    background-color: transparent;
+    color: gray;
+    font-size: 15px;
+    border: 0px;
+    text-transform: uppercase}
+    input[type = reset]:hover {
+      text-decoration: underline;}
+
+input[type="text"] {
+  border-radius: 15px;
+  height: 30px;}
+  input[type="password"] {
+  border-radius: 15px;
+  height: 30px;}
+  input[type="tel"] {
+  border-radius: 15px;
+  height: 30px;}
+  input[type="email"] {
+  border-radius: 15px;
+  height: 30px;}
+  input[type="date"] {
+  border-radius: 15px;
+  height: 30px;}
 
 #my-info {
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   background-color: white;
   text-align: right;
   position: absolute; 
   height: 100%;
+}
+#my-info h6 {
+
 }
 
 .newPost {
@@ -81,7 +121,7 @@ input[type = button] {
   padding-top: 20px;
 }
 
-.form {
+/*.form {
   padding-top: 70px;
   padding-bottom: 70px}
   .form p {
@@ -89,21 +129,19 @@ input[type = button] {
   }
   .form p input {
     width: 80px;
-  }
+  }*/
 
 .search {
   margin-left: auto;
   margin-right: auto;
   padding: 0; 
   margin-top: 20px;}
-  .searchrow {
-    padding: 0;
-  }
 
 .cards {
   margin-top: 0px;
   margin-bottom: 50px;}
   .cards .columns {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     background-color: rgba(0, 128, 128, 0.2);
     height: 300px;
     width: 300px;
@@ -136,18 +174,32 @@ input[type = button] {
     box-shadow: 2px 2px 5px #888888; }
   .profile-card .profile-info {
     padding: 1rem; }
+    .profile-card .profile-info h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 25px;
+      font-weight: bold;}
     .profile-card .profile-info h4 {
       margin-top: 0;
       text-align: center;}
     .profile-card .profile-info p {
       text-align: left;
-      padding: 30px; }
+      padding: 30px;
+      margin-bottom: 0px;}
+      #login p {
+      text-align: left;
+      padding: 0px;
+      margin-bottom: 0px;}
+    #update {
+      float: right;
+      margin-top: 0;}
 
 
 .post {
   padding: 1rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin: 2em 0em;
+  margin: 2em auto;
   background-color: #fff; 
   text-align: center;
   position: relative;}
@@ -156,11 +208,10 @@ input[type = button] {
     position: absolute;}
 
 .footer {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   background-color: #8d8d8d;
   text-align: right;
-  font-size: 1.2rem;
-  padding: 2rem; }
-  .footer p.copywrite {
-    color: white;
-    font-size: 0.875rem;
-    margin: 0; }
+  padding: 2rem;
+  color: white;
+  font-size: 1rem;
+  margin: 0; }

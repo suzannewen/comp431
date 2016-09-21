@@ -12,7 +12,7 @@
 <header class="header">
   <h1 class="headline">rice<small>BOOK</small></h1>
   <ul class="header-subnav">
-    <li><!-- <i class="fi-magnifying-glass"> --><input type="text" class="search" placeholder="Search"></i></li>
+    <li><input type="text" class="search" placeholder="Search"></i></li>
     <li><a><u>FEED</u></a></li>
     <li><a href="profile.html">PROFILE</a></li>
     <li><a href="index.html">LOGOUT</a></li>
@@ -20,41 +20,48 @@
 </header>
 
 <div class="off-canvas-wrapper" data-offcanvas>
-<div class="off-canvas position-right reveal-for-large" id="my-info" data-off-canvas>
-
-  <div class="row column">
-    <br>
-    <img class="thumbnail" src="http://placehold.it/550x350">
-    <h5>Suzanne Wen</h5>
-    <p><i>"I love COMP431!"</i></p>
-    <input type="text"><input type="button" value="Update Status">
-  </div>
-</div>
-
-<div class="row">
-  <div class="small-9 columns">
-    <div class="post">
-      <input type="text" placeholder="Update your status"><br>
-      <input type="button" value="Upload a picture" id="left" onclick=""><input type="button" value="Clear" id="right" onclick=""><input type="button" value="Post" id="right" onclick="">
+  <div class="off-canvas position-right reveal-for-large" id="my-info" data-off-canvas>
+    <div class="row column">
+      <img class="thumbnail" src="http://placehold.it/550x350">
+      <h5>Suzanne Wen</h5>
+      <p><i>"I love COMP431!"</i></p>
+      <input type="text"><input type="button" value="Update Status"><br><br><br>
+      <h6><b>YOUR FRIENDS</b></h6>
+      <img class="thumbnail" src="http://placehold.it/550x350"><br>
+      <h6>Kevin Lee<h6>
+      <img class="thumbnail" src="http://placehold.it/550x350"><br>
+      <h6>Katherine Yu<h6>
+      <img class="thumbnail" src="http://placehold.it/550x350">
+      <h6>Kevin Lee<h6>
+      <input type="text"><input type="button" value="Add as friend">
     </div>
   </div>
-</div>
 
-<div class="cards">
-  <div class="row large-up-4">
-    <div class="columns" id="picture1"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns" id="picture2"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+  <div class="row">
+    <div class="small-9 columns">
+      <div class="post">
+        <input type="text" placeholder="What would you like to post?"><br>
+        <input type="button" value="UPLOAD A PICTURE" id="left" onclick=""><input type="button" value="Clear" id="right" onclick="" style="margin-right: 80px"><input type="button" value="Post" id="right" onclick="">
+      </div>
+    </div>
   </div>
-  <div class="row large-up-4">
-    <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns" id="picture3"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns textBox">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-  </div>
-  <div class="row large-up-4">
-    <div class="columns"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
-    <div class="columns" id="picture5"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+
+  <div class="cards">
+    <div class="row large-up-4">
+      <div class="columns" id="picture1"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns" id="picture2"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+    </div>
+    <div class="row large-up-4">
+      <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns" id="picture3"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns textBox">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+    </div>
+    <div class="row large-up-4">
+      <div class="columns"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+      <div class="columns" id="picture5"><input type="button" value="Edit" id="left" onclick=""> <input type="button" value="Leave a comment" id="right" onclick=""></div>
+    </div>
   </div>
 </div>
 
@@ -67,16 +74,14 @@
   </div>
 </footer>
 
-</div>
-</div>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.js"></script>
 
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
+<script>
+  $(document).foundation();
+</script>
+</body>
 </html>
 
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.css">
-<!--     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet"> -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -22,13 +22,13 @@
 <div class="row">
   <div class="small-12 large-6 columns">
     <div class="profile-card">
-      <img src="" alt="Inky"><input type="button" value="Upload profile picture">
+      <div class="profilePic" style="background-image: url('me.jpg')"></div><input type="button" value="Upload profile picture">
       <div class="profile-info">
-        <h4 class="subheader">Suzanne Wen</h4>
+        <h4>Suzanne Wen</h4>
         <i>I love COMP 431!</i>
-        <p><i class="fi-social-twitter"></i>suz.wen@yahoo.com <br>
-        <i class="fi-social-twitter"></i>(254)-592-5421 <br>
-        <i class="fi-social-twitter"></i>76016 <br></p>
+        <p><i class="fi-mail"></i> suz.wen@yahoo.com <br>
+        <i class="fi-telephone"></i> (254)-592-5421 <br>
+        <i class="fi-home"></i> 76016 <br></p>
       </div>
     </div>
   </div>
@@ -36,9 +36,9 @@
     <div class="profile-card">
       <div class="profile-info">
         <h3>Update Information</h3>
-        <p><i class="fi-social-twitter"></i><input type="text">
-        <i class="fi-social-twitter"></i><input type="text">
-        <i class="fi-social-twitter"></i><input type="text"></p>
+        <p><input type="text" placeholder="email"><br>
+        </i><input type="text" placeholder="phone number"><br>
+        <input type="text" placeholder="zip code"></p>
         <input type="button" value="Update" id="update">
       </div>
     </div>

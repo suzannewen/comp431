@@ -59,6 +59,17 @@ input[type = button] {
     text-transform: uppercase}
     input[type = button]:hover {
       text-decoration: underline;}
+    input[type = file] {
+    background-color: transparent;
+    color: gray;
+    font-size: 15px;
+    border: 0px;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    margin: 0 0 9px 9px;}
+    input[type = submit]:hover {
+      text-decoration: underline;}
     input[type = submit] {
     background-color: transparent;
     color: gray;
@@ -87,7 +98,8 @@ input[type = button] {
 
 input[type="text"] {
   border-radius: 15px;
-  height: 30px;}
+  height: 30px;
+  margin: 0;}
   input[type="password"] {
   border-radius: 15px;
   height: 30px;}
@@ -101,17 +113,24 @@ input[type="text"] {
   border-radius: 15px;
   height: 30px;}
 
+.thumbnail {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
 #my-info {
   padding: 15px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   background-color: white;
   text-align: right;
   position: absolute; 
-  height: 100%;
-}
-#my-info h6 {
-
-}
+  height: 100%;}
+  #my-info h5 {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 25px;
+  }
 
 .newPost {
   background-color: white;
@@ -121,15 +140,6 @@ input[type="text"] {
   padding-top: 20px;
 }
 
-/*.form {
-  padding-top: 70px;
-  padding-bottom: 70px}
-  .form p {
-    font-size: 15px;
-  }
-  .form p input {
-    width: 80px;
-  }*/
 
 .search {
   margin-left: auto;
@@ -166,12 +176,15 @@ input[type="text"] {
   margin: 4em;
   background-color: #fff; 
   text-align: center;}
-  .profile-card img {
-    width: 10rem;
+  .profile-card .profilePic {
+    width: 15rem;
+    height: 15rem;
     display: block;
     margin: 2rem auto;
+    overflow: hidden;
     border-radius: 50%;
-    box-shadow: 2px 2px 5px #888888; }
+    box-shadow: 2px 2px 5px #888888;
+    background-size: cover;}
   .profile-card .profile-info {
     padding: 1rem; }
     .profile-card .profile-info h3 {
@@ -182,7 +195,8 @@ input[type="text"] {
       font-weight: bold;}
     .profile-card .profile-info h4 {
       margin-top: 0;
-      text-align: center;}
+      text-align: center;
+      font-size: 45px;}
     .profile-card .profile-info p {
       text-align: left;
       padding: 30px;
@@ -191,9 +205,17 @@ input[type="text"] {
       text-align: left;
       padding: 0px;
       margin-bottom: 0px;}
-    #update {
-      float: right;
-      margin-top: 0;}
+      #login input[type="text"] {
+        border-radius: 15px;
+        height: 30px;
+        margin: 0 0 1rem;}
+      .profile-info i {
+        font-size: 25px;
+        color: gray;
+        margin-right: 10px;}
+      #update {
+        float: right;
+        margin-top: 0;}
 
 
 .post {

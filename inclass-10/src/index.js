@@ -23,9 +23,9 @@ class ToDoItem extends React.Component {
 
     render() { return (
         <li id="task${_taskId++}">
-            <i className="check glyphicon glyphicon-check" onClick={this.toggleDone}></i>
-            <span>{this.props.text}</span>
-            <i className="destroy glyphicon glyphicon-remove" onClick={this.removeTask}></i>
+            <i className="check glyphicon glyphicon-check" onClick={(e) => this.setState( {done: !this.state.done} )}></i>
+            <span className={(this.state.done) ? "completed" : ""}>{this.props.text}</span>
+            <i className="destroy glyphicon glyphicon-remove" onClick={(e) => this.props.remove()}></i>
         </li>
         /*
         h("li", { id: `task${_taskId++}`}, [

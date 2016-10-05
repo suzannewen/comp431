@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.babelrc
+.eslintrc
+mocha.opts
+istanbul.yaml
+tests.webpack.js
+webpack.config.js

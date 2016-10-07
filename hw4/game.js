@@ -1,3 +1,13 @@
+window.onload = function () {
+    document.getElementById("game").addEventListener("mousemove", function () { mouseMove(event); });
+};
+
+//detects mouse movement to navigate the player
+function mouseMove(e) {
+    player.x = e.clientX;
+    player.y = e.clientY;
+}
+
 //create the canvas
 var canvas = document.createElement("canvas");
 var c = canvas.getContext("2d");
@@ -61,12 +71,13 @@ var tv = {
     icon: tvImg
 }
 
-//level & maze object
+//keeps track of level # and time
 var level = {
     num: 1,
     time: 60
 };
 
+//maze object contains x, y coordinates of the "walls"
 var maze = {
     map1: [10, 70, 130, 190, 250, 310],
     map2: [310, 370, 430, 490, 550, 610],
@@ -88,15 +99,7 @@ var totalTime = level.time;
 setInterval(function () { //starts the game
     draw();
     game();
-}, 100); //canvas is redrawn 10 times per second
-
-//detects mouse movement to navigate
-function mouseMove(e) {
-    // player.x += e.movementX * 5;
-    // player.y += e.movementY * 5;
-    player.x = e.clientX;
-    player.y = e.clientY;
-}
+}, 100); //canvas is redrawn 10 times per second to create animation
 
 function draw () {
     //clears canvas each time
@@ -123,7 +126,6 @@ function draw () {
         }
     }
     
-
     //draws player and grade
     c.drawImage(player.icon, player.x, player.y, 20, 40);
     c.font="50px Verdana";
@@ -142,7 +144,7 @@ function draw () {
 }
 
 function game () {
-    //determines grade as time passes
+    //grade is determined by how much of the original time is left
     if (level.time > (totalTime * 0.95)) {
         letterNum = 0;
     }
@@ -184,53 +186,65 @@ function game () {
     }
 
     //checks if player ran out of time or GPA is less than 2.0, or finished the game
-    if (level.time < 0 || gpa < 2.0) {
+    if (level.time < 1 || gpa < 2.0) {
         gameOver();
     }
     else if (level.num === 6) {
         endGame();
     }
+    
+    inBounds(); 
+    isCaught();
+    isHit();
+    randomMove();
+    moveObstacles();
+   
+}
 
-    //keeps player & object in bounds
+//keeps player & object in bounds by checking x, y coordinates
+function inBounds () {
     if (player.x >= canvas.width) { 
-        player.x = canvas.width - 30;
+        player.x = canvas.width - 40;
     }
     else if (player.x <= 0) {
-        player.x = 0;
+        player.x = 40;
     }
     if (player.y >= canvas.height) {
-        player.y = canvas.height - 30;
+        player.y = canvas.height - 40;
     }
     else if (player.y <= 0) {
-        player.y = 0;
+        player.y = 40;
     }
 
     if (object.x >= canvas.width) { 
-        object.x = canvas.width - 30;
+        object.x = canvas.width - 40;
     }
     else if (object.x <= 0) {
-        object.x = 0;
+        object.x = 40;
     }
     if (object.y >= canvas.height) {
-        object.y = canvas.height - 30;
+        object.y = canvas.height - 40;
     }
     else if (object.y <= 0) {
-        object.y = 0;
+        object.y = 40;
     }
+}
 
-    //checks if player catches the grade 
-    if ( Math.abs(object.x - player.x) < 30 && Math.abs(object.y - player.y) < 30 ) { //if the player catches the object
+//checks if player catches the grade by checking distance of x,y coordinates
+function isCaught () {
+     if ( Math.abs(object.x - player.x) < 30 && Math.abs(object.y - player.y) < 30 ) { //if the player catches the object
         player.x = canvas.width/2;
         player.y = canvas.height/2;
         object.x = canvas.width * Math.random();
         object.y = canvas.height * Math.random();
         nextLevel();
     }
+}
 
-    //checks if player hits obstacle
+//checks if player hits obstacle via distance between coordinates
+function isHit () {
     if ( Math.abs(bed.x - player.x) < 30 && Math.abs(bed.y - player.y) < 30 && level.num > 1) { //if the player catches the object
         level.time -= 10;
-        console.log("ouch")
     }
     if ( Math.abs(fb.x - player.x) < 30 && Math.abs(fb.y - player.y) < 30&& level.num > 3) { //if the player catches the object
         level.time -= 10;
@@ -238,8 +252,10 @@ function game () {
     if ( Math.abs(tv.x - player.x) < 30 && Math.abs(tv.y - player.y) < 30 && level.num > 4) { //if the player catches the object
         level.time -= 10;
     }
+}
 
-    //object moves randomly
+//object moves randomly around the screen
+function randomMove () {
     var move = 1 + Math.floor(Math.random() * object.speed);
     move *= Math.floor(Math.random() * 2) === 1 ? 1 : -1;
     var xy = Math.floor(Math.random() * 2); //determines if object moves in x or y direction
@@ -249,9 +265,11 @@ function game () {
     else {
         object.y += move;
     }
+}
 
-    //move obstacles
-    if (bed.x > canvas.width || bed.x < 0) {
+//moves obstacles and changes direction if x,y detected to be out of bounds
+function moveObstacles () {
+     if (bed.x > canvas.width || bed.x < 0) {
         bed.xSpeed = -bed.xSpeed;
     }
     if (bed.y > canvas.height || bed.y < 0) {
@@ -291,7 +309,7 @@ function nextLevel () {
     level.num++;
     object.speed += 10;
 
-    //increase the speed of the obstacles each term
+    //increase the speed of the obstacles each level
     if (level.num > 2) {
         bed.xSpeed += 10;
         bed.ySpeed += 10;

@@ -184,7 +184,7 @@ function game () {
     }
 
     //checks if player ran out of time or GPA is less than 2.0, or finished the game
-    if (level.time === 0 || gpa < 2.0) {
+    if (level.time < 0 || gpa < 2.0) {
         gameOver();
     }
     else if (level.num === 6) {
@@ -308,10 +308,9 @@ function nextLevel () {
 }
 
 function gameOver () {
-    clearInterval(levelTimer);
-    level.num = 1;
+    location.href = 'gameover.html';
 }
 
 function endGame () {
-    clearInterval(levelTimer);
+    location.href = 'endgame.html';
 }

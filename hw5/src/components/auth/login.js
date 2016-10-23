@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const Login = ({ login }) => (
+import { resource } from './authActions'
+
+export const Login = ({ authLogin }) => (
     <div className="small-12 large-6 columns">
       <div className="boxes">
         <div className="info" id="login">
         <h3>Log in</h3>
           <p>Account Name <input type="text" id="loginName" /></p>
           <p>Password <input type="password" id="loginPW" /></p>
-          <input type="button" value="Log In" onClick={login} />
+          <input type="button" value="Log In" onClick={ authLogin } />
           <input type="button" value="Clear" />
         </div>
       </div>
@@ -16,18 +18,25 @@ export const Login = ({ login }) => (
 )
 
 Login.propTypes = {
-    login: PropTypes.func.isRequired
+    authLogin: PropTypes.func.isRequired
 }
 
-export default connect(
-    (state) => {
-        return {
-            location: state.location
-        }
-    },
+export default connect(null,
     (dispatch) => {
         return {
-            login: () => dispatch({ type: 'NAVIGATION',  location: 'MAIN_PAGE' })
+            authLogin: () => {
+              const username = document.querySelector("#loginName").value
+              const password = document.querySelector("#loginPW").value
+              let valid = false
+
+              return resource('POST', 'login', { username, password })
+                // .then(r => resource('GET', 'headlines'))
+                .then(r => {
+                  valid = true
+                  dispatch({ type: 'NAVIGATION',  location: 'MAIN_PAGE' })
+                })
+                .catch( () => {if (valid === false) {alert ("Your username or password is incorrect.")} } )
+          }     
         }
     }
 )(Login)

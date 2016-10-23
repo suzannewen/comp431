@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 const divStyle = {
     marginRight: 80
 }
+
 export const NewPost = ({  }) => (
 
  <div className="row">

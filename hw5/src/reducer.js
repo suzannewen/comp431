@@ -1,25 +1,11 @@
 const Reducer = (state =  {
-  location: 'MAIN_PAGE'
-  friends:
+  location: 'LANDING_PAGE'
 }, action) => {
   switch(action.type) {
-    case 'PROFILE_PAGE':
-      return { ...state,
-        location: 'PROFILE_PAGE'}]
-      }
-    case 'REMOVE_TODO':
-      return { ...state, 
-        todoItems: state.todoItems.filter(({id}) => id != action.id)
-      }
-    case 'TOGGLE_TODO':
-      return { ...state, 
-        todoItems: state.todoItems.map(({ id, text, done }) => (
-          { id, text, done: action.id === id ? !done : done }
-        ))
-      }
-    case 'SET_VISIBILITY_FILTER':
-      return { ...state, visibilityFilter: action.filter }
+    case 'NAVIGATION':
+      return { ...state, location: action.location }
     default: 
+      // console.log("!" +state.location)
       return state
   }
 }

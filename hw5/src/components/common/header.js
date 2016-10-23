@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const Header = () => (
+export const Header = ({ navigate }) => (
 
-<header class="header">
-    <h1 class="title">rice<small>BOOK</small></h1>
-    <ul class="nav">
-      <li><input type="text" class="search" placeholder="Search"></i></li>
-      <li><a><u>FEED</u></a></li>
-      <li><a href="profile.html">PROFILE</a></li>
-      <li><a href="index.html">LOGOUT</a></li>
+<header className="header">
+    <h1 className="title">rice<small>BOOK</small></h1>
+    <ul className="nav">
+      <li><input type="text" className="search" placeholder="Search" /></li>
+      <li><h4  type="button" onClick={ () => { navigate('MAIN_PAGE')} } >FEED </h4></li>
+      <li><h4 type="button" onClick={ () => { navigate('PROFILE_PAGE')} }>PROFILE </h4></li>
+      <li><h4 type="button" onClick={() => { navigate('LANDING_PAGE')} }>LOGOUT</h4></li>
     </ul>
   </header>
 
@@ -18,12 +18,12 @@ export const Header = () => (
 export default connect(
     (state) => {
         return {
-            location: location;
+            location: state.location
         }
-    }, 
+    },
     (dispatch) => {
         return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
+            navigate:  (place) => dispatch({ type: 'NAVIGATION', location: place})
         }
     }
 )(Header)

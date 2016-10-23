@@ -1,26 +1,30 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import Register from './register'
+import Login from './login'
 
 export const Landing = ({  }) => (
-  <header class="header">
-    <h1 class="title">welcome to rice<small>BOOK</small></h1>
-  </header>
+  <div>
+    <header className="header">
+      <h1 className="title">welcome to rice<small>BOOK</small></h1>
+    </header>
 
-  <div class="row">
-    <Register />
-    <Login />
+    <div className="row">
+      <Register />
+      <Login />
+    </div>
   </div>
 )
 
 export default connect(
     (state) => {
         return {
-            todoItems: filterTodos(state.todoItems, state.visibilityFilter)
+            location: state.location
         }
-    }, 
+    },
     (dispatch) => {
         return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
+            login: () => dispatch({ type: 'NAVIGATION',  location: 'MAIN_PAGE' })
         }
     }
 )(Landing)

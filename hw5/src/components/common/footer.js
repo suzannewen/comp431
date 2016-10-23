@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 export const Footer = () => (
 
-  <footer class="footer">
-    <div class="row">
-      <div class="small-12 columns">Suzanne Wen © 2016</div>
+  <footer className="footer">
+    <div className="row">
+      <div className="small-12 columns">Suzanne Wen © 2016</div>
     </div>
   </footer>
 
@@ -14,12 +14,12 @@ export const Footer = () => (
 export default connect(
     (state) => {
         return {
-            location: location;
+            location: state.location
         }
-    }, 
+    },
     (dispatch) => {
         return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
+            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
-)(Header)
+)(Footer)

@@ -1,25 +1,32 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+const imgUrl = 'me.jpg'
+const divStyle = {
+  backgroundImage: 'url(' + imgUrl + ')',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}
+
 export const MainBar = ({  }) => (
 
-<div class="off-canvas position-right reveal-for-large" id="profileInfo" data-off-canvas>
-    <div class="row column">
-      <img class="thumbnail" style="background-image: url('me.jpg'); background-size: cover;  background-repeat: no-repeat;">
+<div className="off-canvas position-right reveal-for-large" id="profileInfo" data-off-canvas>
+    <div className="row column">
+      <img className="thumbnail" style={divStyle} />
       <h5>Suzanne Wen</h5>
       <p><i id="status">"I love COMP431!"</i></p>
-      <input type="text" id="update"><input type="button" value="Update Status" onclick="updateStatus();"><br><br><br>
+      <input type="text" id="update" /><input type="button" value="Update Status" onClick="updateStatus();" /><br /><br /><br />
       <h6><b>YOUR FRIENDS</b></h6>
-      <img class="thumbnail" style="background-image: url('kevin.jpg'); background-size: cover;  background-repeat: no-repeat;">
+      <img className="thumbnail" style={divStyle} />
       <h6>Kevin Lee</h6>
       <p><i>"Hungry..."</i></p>
-      <img class="thumbnail" style="background-image: url('katherine.jpg'); background-size: cover;  background-repeat: no-repeat;">
+      <img className="thumbnail" style={divStyle} />
       <h6>Katherine Yu</h6>
       <p><i>"Boys are dumb"</i></p>
-      <img class="thumbnail" style="background-image: url('joan.jpg'); background-size: cover;  background-repeat: no-repeat;">
+      <img className="thumbnail" style={divStyle} />
       <h6>Joan Shira</h6>
-      <p><i>"Coffee is delicious :)"</i></p><br>
-      <input type="text"><input type="button" value="Add as friend">
+      <p><i>"Coffee is delicious :)"</i></p><br />
+      <input type="text" /><input type="button" value="Add as friend" />
     </div>
   </div>
 
@@ -28,7 +35,7 @@ export const MainBar = ({  }) => (
 export default connect(
     (state) => {
         return {
-            location: location;
+            location: location
         }
     }, 
     (dispatch) => {

@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Info } from 'info'
+import Info from './info'
+import UpdateInfo from './updateInfo'
 
 export const Profile = ({  }) => (
-  <div class="row">
+  <div className="row">
      <Info />
      <UpdateInfo />
   </div>
@@ -12,12 +13,12 @@ export const Profile = ({  }) => (
 export default connect(
     (state) => {
         return {
-            location: location
+            location: state.location
         }
-    }, 
+    },
     (dispatch) => {
         return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
+            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
 )(Profile)

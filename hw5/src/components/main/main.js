@@ -1,17 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { MainBar } from 'mainBar'
-import { NewPost } from 'newPost'
-import { Posts } from 'posts'
+import MainBar from './mainBar'
+import NewPost from './newPost'
+import Posts from './posts'
 
-export const main = ({  }) => (
+export const Main = ({  }) => (
 
-<div class="off-canvas-wrapper" data-offcanvas>
-
-<MainBar />
-<NewPost />
-<Posts />
-
+<div className="off-canvas-wrapper" data-offcanvas>
+  <MainBar />
+  <NewPost />
+  <Posts />
 </div>
 
 )
@@ -19,12 +17,12 @@ export const main = ({  }) => (
 export default connect(
     (state) => {
         return {
-            location: location
+            location: state.location
         }
-    }, 
+    },
     (dispatch) => {
         return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
+            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
-)(ToDos)
+)(Main)

@@ -10,7 +10,6 @@ import createLogger from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 
 import Reducer from './reducer'
-import ToDos from './todos'
 import App from './app'
 
 const logger = createLogger()

@@ -4,8 +4,11 @@ const Reducer = (state =  {
   switch(action.type) {
     case 'NAVIGATION':
       return { ...state, location: action.location }
+    // case 'MAIN':
+    //   return { ...state, location: action.location }
+    // case 'PROFILE':
+    //   return { ...state, location: action.location }
     default: 
-      // console.log("!" +state.location)
       return state
   }
 }

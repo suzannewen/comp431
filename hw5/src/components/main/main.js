@@ -10,6 +10,8 @@ export const Main = ({  }) => (
   <MainBar />
   <NewPost />
   <Posts />
+  <Posts />
+  <Posts />
 </div>
 
 )

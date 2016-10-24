@@ -5,13 +5,13 @@ const divStyle = {
     marginRight: 80
 }
 
-export const NewPost = ({  }) => (
+export const NewPost = ({ addTodo }) => (
 
  <div className="row">
     <div className="small-9 columns">
       <div className="post">
         <input type="text" placeholder="What would you like to post?" /><br />
-        <input type="file" value="UPLOAD A PICTURE" id="left" onClick="" /><input type="button" value="Clear" id="right" onClick="" style={divStyle} /><input type="button" value="Post" id="right" onClick="" />
+        <input type="file" value="UPLOAD A PICTURE" id="left" onClick={ addTodo } /><input type="button" value="Clear" id="right" onClick={ addTodo } style={divStyle} /><input type="button" value="Post" id="right" onClick={ addTodo } />
       </div>
     </div>
   </div>

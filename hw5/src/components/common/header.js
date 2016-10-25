@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { resource } from '../actions/auth'
+import { resource } from '../actions/resource'
 
 export const Header = ({ navigate, logout }) => (
 

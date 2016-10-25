@@ -21,7 +21,7 @@ export const MainBar = ({ username, headline, friends, addTodo }) => (
       
       <div>
             {friends.map(({ id, friendName, friendHeadline }) => (
-                <Friend key={ id} name={ friendName } headline={ friendHeadline} />
+                <Friend key={ id } name={ friendName } headline={ friendHeadline} />
             ))}
         </div>
 

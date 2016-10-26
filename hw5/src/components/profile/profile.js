@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Info from './info'
 import UpdateInfo from './updateInfo'
 
+//contains Info and UpdateInfo containers
 export const Profile = ({  }) => (
   <div className="row">
      <Info />
@@ -14,11 +15,6 @@ export default connect(
     (state) => {
         return {
             location: state.location
-        }
-    },
-    (dispatch) => {
-        return {
-            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
 )(Profile)

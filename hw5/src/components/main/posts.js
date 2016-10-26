@@ -1,16 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const Posts = ({ text, addTodo }) => (
+// one post div generated for each article
+export const Posts = ({ text }) => (
 <div>
-  <div className="small-9 columns">{ text }<input type="button" value="Edit" id="left" onClick={ addTodo } /> <input type="button" value="Leave a comment" id="right" onClick={ addTodo } /></div>
+  <div className="small-9 columns">{ text }<input type="button" value="Edit" id="left"/> <input type="button" value="Leave a comment" id="right" /></div>
 </div>
 )
 
-export default connect(null, 
-    (dispatch) => {
-        return {
-            addTodo: (text) => dispatch({ type: 'ADD_TODO', text })
-        }
-    }
+export default connect(null, null
 )(Posts)

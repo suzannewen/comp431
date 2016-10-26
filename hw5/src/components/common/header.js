@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { resource } from '../actions/resource'
+import { logout } from '../actions/loginAction'
+import { navigate } from './navActions'
 
 export const Header = ({ navigate, logout }) => (
 
@@ -19,12 +21,8 @@ export const Header = ({ navigate, logout }) => (
 export default connect(null,
     (dispatch) => {
         return {
-            navigate:  (place) => dispatch({ type: 'NAVIGATION', location: place}),
-            logout: () => {
-                return resource('PUT', 'logout')
-                .then( dispatch({ type: 'NAVIGATION',  location: 'LANDING_PAGE' }) )
-                .catch()
-            }     
+            navigate:  (place) => navigate(place)(dispatch),
+            logout: () =>  logout()(dispatch)
         }
     }
 )(Header)

@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const UpdateInfo = ({ placeholder }) => (
+//allows users to update their information (functionality not added yet)
+export const UpdateInfo = ({ }) => (
   <div className="small-12 large-6 columns">
         <div className="boxes">
           <div className="info">
@@ -12,7 +13,7 @@ export const UpdateInfo = ({ placeholder }) => (
                 <input type="text" placeholder="phone number" id="phone" /><br />
                 <input type="text" placeholder="password" id="pw" /><br />
               </p>
-                <input type="button" value="Update" id="update" onClick={ placeholder } />
+                <input type="button" value="Update" id="update"/>
           </div>
         </div>
       </div>
@@ -22,11 +23,6 @@ export default connect(
     (state) => {
         return {
             location: state.location
-        }
-    },
-    (dispatch) => {
-        return {
-            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
 )(UpdateInfo)

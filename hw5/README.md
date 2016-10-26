@@ -1,2 +1,4 @@
-# starter
-COMP431/531 Starter
+{ 
+     "netid": "yw25",
+  "frontend": "https://ricebook.surge.sh"
+}

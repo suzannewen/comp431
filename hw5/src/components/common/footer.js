@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+//consistent throughout the app
 export const Footer = () => (
 
   <footer className="footer">

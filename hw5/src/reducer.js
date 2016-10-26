@@ -1,7 +1,7 @@
 const Reducer = (state =  {
   location: 'LANDING_PAGE',
-  username: 'blank',
-  headline: 'blank',
+  username: '',
+  headline: '',
   avatar: '',
   email: '',
   zipcode: '',
@@ -15,6 +15,8 @@ const Reducer = (state =  {
       return { ...state, location: action.location }
     case 'HEADLINE':
       return { ...state, username: action.username, headline: action.headline }
+    case 'UPDATE_HEADLINE':
+      return { ...state, headline: action.headline }
     case 'FRIEND':
       return { ...state, nextFriendId: state.nextFriendId + 1, 
           friends: [ ...state.friends, 
@@ -27,8 +29,8 @@ const Reducer = (state =  {
       return { ...state, zipcode: action.zipcode }
     case 'ARTICLES':
       return { ...state, articles: action.articles }
-    // case 'PROFILE':
-    //   return { ...state, pic: action.pic, email: action.email, phone: action.phone, zip: action.zip }
+    case 'LOGOUT':
+      return { ...state, location: 'LANDING_PAGE', username: '', headline: '', avatar: '', email: '', zipcode: '', nextFriendId: 0, friends: [], friendAvatars: [], articles: [] }
     default: 
       return state
   }

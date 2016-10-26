@@ -6,6 +6,7 @@ const divStyle = {
   backgroundImage: 'url('+imgUrl+')'
 }
 
+//displays info for users to view
 export const Info = ({ username, headline, avatar, email, zipcode }) => (
     <div className="small-12 large-6 columns">
       <div className="boxes">
@@ -30,11 +31,6 @@ export default connect(
             avatar: state.avatar,
             email: state.email,
             zipcode: state.zipcode,
-        }
-    },
-    (dispatch) => {
-        return {
-            placeholder:  () => dispatch({ type: "NAVIGATION"})
         }
     }
 )(Info)

@@ -4,14 +4,19 @@ import MainBar from './mainBar'
 import NewPost from './newPost'
 import Posts from './posts'
 
-export const Main = ({  }) => (
+export const Main = ({ articles }) => (
 
 <div className="off-canvas-wrapper" data-offcanvas>
   <MainBar />
   <NewPost />
-  <Posts />
-  <Posts />
-  <Posts />
+
+  <div className="cards">
+    <div className="row">
+        {articles.map(({ _id, text }) => (
+          <Posts key={ _id } text={ text } />
+        ))}
+    </div>
+  </div>
 </div>
 
 )
@@ -19,7 +24,8 @@ export const Main = ({  }) => (
 export default connect(
     (state) => {
         return {
-            location: state.location
+            location: state.location,
+            articles: state.articles
         }
     },
     (dispatch) => {

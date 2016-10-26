@@ -2,11 +2,13 @@ const Reducer = (state =  {
   location: 'LANDING_PAGE',
   username: 'blank',
   headline: 'blank',
-  nextId: 0,
-  friends: [ 
-    // {id: 0, friendName: 'blank', friendHeadline: 'blank'},
-    // {id: 1, friendName: 'blank', friendHeadline: 'blank'}
-  ]
+  avatar: '',
+  email: '',
+  zipcode: '',
+  nextFriendId: 0,
+  friends: [],
+  friendAvatars: [],
+  articles: []
 }, action) => {
   switch(action.type) {
     case 'NAVIGATION':
@@ -14,12 +16,19 @@ const Reducer = (state =  {
     case 'HEADLINE':
       return { ...state, username: action.username, headline: action.headline }
     case 'FRIEND':
-      // return { ...state, friends: action.following }
-      return { ...state, nextId: state.nextId + 1, 
+      return { ...state, nextFriendId: state.nextFriendId + 1, 
           friends: [ ...state.friends, 
-            { id:state.nextId, friendName: action.name, friendHeadline: action.headline } ] }
-    case 'PROFILE':
-      return { ...state, pic: action.pic, email: action.email, phone: action.phone, zip: action.zip }
+            { id:state.nextFriendId, friendName: action.name, friendHeadline: action.headline } ] }
+    case 'AVATAR':
+      return { ...state, avatar: action.avatar }
+    case 'EMAIL':
+      return { ...state, email: action.email }
+    case 'ZIPCODE':
+      return { ...state, zipcode: action.zipcode }
+    case 'ARTICLES':
+      return { ...state, articles: action.articles }
+    // case 'PROFILE':
+    //   return { ...state, pic: action.pic, email: action.email, phone: action.phone, zip: action.zip }
     default: 
       return state
   }

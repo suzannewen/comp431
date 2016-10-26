@@ -2,18 +2,11 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Friend } from './friend'
 
-const imgUrl = 'me.jpg'
-const divStyle = {
-  backgroundImage: 'url(' + imgUrl + ')',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}
-
-export const MainBar = ({ username, headline, friends, addTodo }) => (
+export const MainBar = ({ username, headline, friends, avatar, addTodo }) => (
 
 <div className="off-canvas position-right reveal-for-large" id="profileInfo" data-off-canvas>
     <div className="row column">
-      <img className="thumbnail" style={divStyle} />
+      <img className="thumbnail" src={avatar}/>
       <h5>{ username }</h5>
       <p><i id="status">{ headline }</i></p>
       <input type="text" id="update" /><input type="button" value="Update Status" onClick={ addTodo } /><br /><br /><br />
@@ -29,8 +22,6 @@ export const MainBar = ({ username, headline, friends, addTodo }) => (
     </div>
   </div>
 
-
-
 )
 
 export default connect(
@@ -38,7 +29,8 @@ export default connect(
         return {
             username: state.username,
             headline: state.headline,
-            friends: state.friends
+            friends: state.friends,
+            avatar: state.avatar
         }
     }, 
     (dispatch) => {

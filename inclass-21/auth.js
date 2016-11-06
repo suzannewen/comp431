@@ -1,35 +1,42 @@
-const md5 = require('md5');
-const cookieParser = require('cookie-parser');
-const User = [];
-const cookieKey = 'sid';
+const md5 = require('md5')
+const cookieParser = require('cookie-parser')
+const cookieKey = 'sid'
+const UserArray = []
 
 const register = (req, res) => {
-  const salt = Math.random().toString(36).subString(10);
-  const hash = md5(req.body.password + salt);
-  User.push({ 
+  const salt = Math.random().toString(16).substring(10)
+  const hash = md5(req.body.password + salt)
+  UserArray.push({ 
       'username': req.body.username,
       'salt': salt,
-      'hash': md5(req.body.username + hash)
+      'hash': hash
   });
 
-  res.send("You have registered successfully!");
+  res.send("You have registered successfully!")
 }
 
-const loginUser = (req, res) => {
-  const salt = User.find(salt);
-  const hash = md5(req.body.password + salt);
-  const cookieCode = Math.random().toString(36).subString(10);
+const login = (req, res) => {
+  const findHash = UserArray.find(function(user) {
+    if (user.username === req.body.username) {
+        const hash = md5(req.body.password + user.salt)
+        return user.hash === hash
+    }
+    else {
+        return -1
+    }
+  })
 
-  if (User.hash == hash) {
-    res.cookie(cookieKey, cookieCode, {maxAge: 3600*1000, httpOnly: true});
-    res.send({username: req.body.username, result: "success"});
+  if (typeof findHash === 'object') {
+    const cookieCode = Math.random().toString(16).substring(10)
+    res.cookie(cookieKey, cookieCode, {maxAge: 3600*1000, httpOnly: true})
+    res.send({username: req.body.username, result: "success"})
   }
   else {
-    res.sendStatus(401);
+    res.sendStatus(401)
   }
 }
 
 module.exports = (app) => {
-  app.post('/login', login)
   app.post('/register', register)
+  app.post('/login', login)
 }

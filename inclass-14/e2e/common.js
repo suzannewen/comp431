@@ -16,9 +16,11 @@ exports.login = () =>
     .then(findId('login').click())
     .then(sleep(2000))
 
-exports.logout = () =>
+    exports.logout = () =>
     sleep(500)
     .then(findId('logout').click())
-    .then(findId('message').sendKeys('You have logged out'))
-    // IMPLEMENT ME
-    // validate the message that says: 'You have logged out'
+    .then(sleep(2000))
+    .then(findId('message').getText()
+        .then(text => {
+            expect(text).to.equal('You have logged out')
+        }))

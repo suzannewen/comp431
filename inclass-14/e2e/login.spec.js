@@ -20,17 +20,24 @@ describe('Test Dummy Server Example Page', () => {
     })
 
     it("Update the headline and verify the change", (done) => {
-        const old = findId('message').getText()
-        findId('message').sendKeys("new message")
-        findId('message').getText()
-            .then(text => { expect( text.to.equal("new message") ) } )
-        findId('message').sendKeys(old)
-        findId('message').getText()
-            .then(text => { expect( text.to.equal(old) ) } )
-        done()
-    })
+        const initialHeadline = 'Test Account'
+        const newHeadline = `A new status message ${Math.random()}`
 
-    after('should log out', (done) => {
-        common.logout().then(done)
+        const getMessage = (msg) => 
+            `${preamble} ${common.creds.username} "${msg}"`
+
+        const updateHeadline = (msg) => () => 
+            findId('newHeadline').sendKeys(msg)
+            .then(findId('headline').click())
+            .then(common.logout)
+            .then(common.login)
+            .then(findId('newHeadline').clear())
+            .then(findId('message').getText().then(text => {
+                expect(text).to.equal(getMessage(msg))
+            }))
+
+        updateHeadline(newHeadline)()
+        .then(updateHeadline(initialHeadline))
+        .then(done)
     })
 })

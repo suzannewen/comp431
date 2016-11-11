@@ -8,6 +8,8 @@ const app = express()
 app.use(session({ secret: 'This is the secret message' }))
 app.use(passport.initialize())
 app.use(passport.session())
+var users = []
+
 
 const clientSecret = '683860abd11f3c8844f5086f238b62c1'
 const clientID = '1791594551114737'

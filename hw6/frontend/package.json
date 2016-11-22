@@ -1,5 +1,5 @@
 {
-  "name": "Suzanne's Rice Book",
+  "name": "SuzanneRiceBook",
   "version": "1.0.0",
   "description": "Ricebook",
   "main": "./src/index.js",

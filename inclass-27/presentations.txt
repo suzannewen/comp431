@@ -1,0 +1,7 @@
+1. I thought the presentation on hybrid mobile apps (Cordova) was polished and well delivered. The layout of the slides were well designed and gave pertinent and succinct information. The presenter also focused on the most important information and was able to get his point across in the short time allotted.
+
+2. I enjoyed the talk on Java Spring MVC as it was a complete departure from JavaScript. The code snippets included in the slideshow were informative in showing how to write the Java code.
+
+3. I enjoyed the hybrid mobile apps talk as it addressed a very relevant issue.
+
+

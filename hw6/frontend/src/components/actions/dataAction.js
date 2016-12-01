@@ -16,8 +16,6 @@ function fetchData( dispatch ) {
 function getHeadline (dispatch) {
        return resource('GET', 'headlines')
       .then ( r1 => {
-        console.log(r1)
-        console.log("testtesttest")
         dispatch({ type: 'HEADLINE', username: r1.headlines[0].username, headline: r1.headlines[0].headline })
         } )
 }

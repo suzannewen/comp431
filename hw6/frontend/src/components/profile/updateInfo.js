@@ -35,7 +35,8 @@ export const UpdateInfo = ({ updateEmail, updateZipcode, updatePW }) => {
       </div>
 )}
 
-export default connect( null, (dispatch) => {
+export default connect( null, 
+(dispatch) => {
         return {
             updateEmail: (email) => updateEmail(email)(dispatch),
             updateZipcode: (zipcode) => updateZipcode(zipcode)(dispatch),

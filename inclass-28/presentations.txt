@@ -1,0 +1,5 @@
+1. The talk on Semantic Web was well polished - the video format at times was hard to follow but was visually interesting.
+
+2. I enjoyed the talk on TypeScript - I thought it was interesting that Microsoft was able to take the JavaScript language and improve it without changing the core of the language.
+
+3. The talk on D3 was interesting as data visualization is such an relevant topic in the software industry currently.

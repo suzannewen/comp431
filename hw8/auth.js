@@ -5,15 +5,13 @@ const FacebookStrategy = require('passport-facebook').Strategy
 
 const app = express()
 
-app.use(session({ secret: 'This is the secret message' }))
+app.use(session({ secret: '683860abd11f3c8844f5086f238b62c1' }))
 app.use(passport.initialize())
 app.use(passport.session())
-var users = []
-
 
 const clientSecret = '683860abd11f3c8844f5086f238b62c1'
 const clientID = '1791594551114737'
-const callbackURL = 'http://localhost:3000/auth/callback'
+const callbackURL = 'https://suz-ricebook.surge.sh'
 
 const config = { clientSecret, clientID, callbackURL }
 
@@ -35,7 +33,6 @@ passport.use(new FacebookStrategy(config, function (token, refreshToken, profile
 
 const login = (req, res) => {
   res.send( { username: 'Suzanne' }, { result: 'success'} )
-  console.log("login")
 }
 
 const logout = (req, res) => {
@@ -56,6 +53,6 @@ module.exports = (app) => {
   app.put('/logout', logout)
   app.post('/register', register)
   app.put('/password', password)
-  app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }))
+  app.get('/auth/login', passport.authenticate('facebook', { scope: 'email' }))
   app.get('/auth/callback', passport.authenticate('facebook', { successRedirect: '/login', failureRedirect: '/logout'}))
 }

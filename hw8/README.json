@@ -1,0 +1,5 @@
+{ 
+     "netid": "yw25",
+  "frontend": "https://suz-ricebook.surge.sh/",
+   "backend": "https://suz-ricebookserver.herokuapp.com/"
+}
